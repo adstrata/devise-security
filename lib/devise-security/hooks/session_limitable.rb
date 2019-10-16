@@ -6,7 +6,8 @@
 Warden::Manager.after_set_user except: :fetch do |record, warden, options|
   if record.devise_modules.include?(:session_limitable) &&
      warden.authenticated?(options[:scope]) &&
-     !record.skip_session_limitable?
+     !record.skip_session_limitable? &&
+     !env['devise.skip_session_limitable']
     unique_session_id = Devise.friendly_token
     warden.session(options[:scope])['unique_session_id'] = unique_session_id
     record.update_unique_session_id!(unique_session_id)
