@@ -5,7 +5,7 @@ $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 require 'devise-security/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'devise-security'
+  s.name        = 'ag_devise-security'
   s.version     = DeviseSecurity::VERSION.dup
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['MIT']
